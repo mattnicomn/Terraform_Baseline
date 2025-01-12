@@ -1,22 +1,50 @@
-resource "aws_instance" "bot" {
-  ami                    = var.ami_id
-  instance_type          = var.instance_type
-  subnet_id              = var.public_subnet_ids[0]
-  iam_instance_profile   = var.iam_instance_profile
+resource "aws_instance" "instances" {
+  count         = length(var.instance_types)
+  ami           = var.ami_id
+  instance_type = var.instance_types[count.index]
+  subnet_id     = var.subnet_id
+  key_name      = var.key_name
 
-  tags = {
-    Name = "openai-bot-instance"
+  tags = merge(
+    var.common_tags,
+    {
+      Name = "Instance-${count.index}"
+    }
+  )
+}
+
+resource "aws_security_group" "compute_sg" {
+  name        = var.security_group_name
+  vpc_id      = var.vpc_id
+  description = "Security group for compute instances"
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = var.allowed_ssh_cidrs
   }
 
-  user_data = <<-EOF
-              #!/bin/bash
-              apt-get update -y
-              apt-get install -y python3-pip
-              pip3 install openai robin_stocks
-              # Add script to execute OpenAI bot here
-              EOF
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = merge(
+    var.common_tags,
+    {
+      Name = "Compute-Security-Group"
+    }
+  )
 }
 
-output "instance_public_ip" {
-  value = aws_instance.bot.public_ip
-}
+
