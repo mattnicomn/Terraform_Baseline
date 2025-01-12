@@ -11,3 +11,14 @@ resource "aws_s3_bucket" "bucket" {
   }
 }
 
+# DynamoDB Table for State Locking
+resource "aws_dynamodb_table" "terraform_lock_table" {
+  name         = var.dynamodb_table_name
+  billing_mode = "PAY_PER_REQUEST"
+
+  attribute {
+    name = "LockID"
+    type = "S"
+  }
+}
+
