@@ -1,6 +1,5 @@
 resource "aws_s3_bucket" "bucket" {
   bucket = var.bucket_name
-  key            = "Terraform_Baseline/terraform.tfstate"
   acl    = "private"
 
   versioning {
