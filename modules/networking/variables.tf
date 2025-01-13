@@ -15,3 +15,9 @@ variable "vpc_id" {
   type        = string
   default     = null # Makes it optional
 }
+
+variable "aws_availability_zones" {
+  description = "List of AWS availability zones to use for the networking module"
+  type        = list(string)
+  default     = null
+}
