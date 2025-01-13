@@ -21,3 +21,9 @@ variable "aws_availability_zones" {
   type        = list(string)
   default     = null
 }
+
+variable "cidr_block" {
+  description = "List of subnet CIDR blocks"
+  type        = list(string)
+  default     = ["10.0.1.0/25"]
+}
