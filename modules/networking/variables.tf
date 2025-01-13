@@ -13,4 +13,5 @@ variable "subnet_cidrs" {
 variable "vpc_id" {
   description = "VPC ID for the security group"
   type        = string
+  default     = null # Makes it optional
 }
