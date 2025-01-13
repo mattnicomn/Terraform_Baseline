@@ -3,6 +3,6 @@ output "vpc_id" {
 }
 
 output "subnet_ids" {
-  value = aws_subnet.subnets[*].id
+  value = subnet_cidrs.subnets[*].id
 }
 
