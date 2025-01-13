@@ -13,6 +13,7 @@ variable "instance_types" {
 variable "subnet_id" {
   description = "Subnet ID to deploy instances"
   type        = string
+  default     = null # Makes it optional
 }
 
 variable "key_name" {
@@ -24,6 +25,7 @@ variable "key_name" {
 variable "vpc_id" {
   description = "VPC ID for the security group"
   type        = string
+  default     = null # Makes it optional
 }
 
 variable "security_group_name" {
