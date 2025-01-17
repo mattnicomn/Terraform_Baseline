@@ -20,7 +20,7 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "subnets" {
   for_each           = toset(var.aws_availability_zones)
 
-  vpc_id             = var.aws_vpc.main
+  vpc_id             = var.vpc_id.main
   cidr_block         = cidrsubnet(var.cidr_block[0], 8, index(var.aws_availability_zones, each.value))
   availability_zone  = each.key
 }
