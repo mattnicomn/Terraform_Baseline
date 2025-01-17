@@ -19,7 +19,7 @@ variable "vpc_id" {
 variable "aws_availability_zones" {
   description = "List of AWS availability zones to use for the networking module"
   type        = list(string)
-  default     = null
+  default     = ["us-east-1a", "us-east-1b", "us-east-1c"]
 }
 
 variable "cidr_block" {
