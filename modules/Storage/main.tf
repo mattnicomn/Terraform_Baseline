@@ -37,3 +37,35 @@ resource "aws_dynamodb_table" "terraform_lock_table" {
   }
 }
 
+# Change DynamoDB if storing logs with similar data/files
+#resource "aws_dynamodb_table" "example_table" {
+#  name           = "example-table"
+#  billing_mode   = "PAY_PER_REQUEST"
+#  hash_key       = "PartitionKey"  # Partition Key
+#  range_key      = "SortKey"       # Sort Key
+
+#  attribute {
+#    name = "PartitionKey"
+#    type = "S"  # String type
+#  }
+
+#  attribute {
+#    name = "SortKey"
+#    type = "S"  # String type
+#  }
+
+  # Enable server-side encryption (optional)
+#  server_side_encryption {
+#    enabled = true
+#  }
+
+  # Enable point-in-time recovery (optional)
+#  point_in_time_recovery {
+#    enabled = true
+#  }
+
+#  tags = {
+#    Environment = "production"
+#    Owner       = "team"
+#  }
+#}
