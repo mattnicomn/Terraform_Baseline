@@ -15,7 +15,7 @@ resource "aws_vpc" "main" {
 #  }
 #}
 
-resource "aws_subnet" "example" {
+resource "aws_subnet" "subnets" {
   for_each           = toset(var.aws_availability_zones)
 
   vpc_id             = var.vpc_id
