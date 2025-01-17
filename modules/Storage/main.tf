@@ -1,12 +1,15 @@
+# Define the S3 bucket resource
 resource "aws_s3_bucket" "bucket" {
   bucket = var.bucket_name
-  acl    = "private"
- 
-  tags = {
-    Name = var.bucket_name
-  }
 }
 
+# Define the S3 bucket ACL resource separately
+resource "aws_s3_bucket_acl" "bucket_acl" {
+  bucket = aws_s3_bucket.bucket.id
+  acl    = "private"
+}
+
+# Define the S3 bucket versioning resource separately
 resource "aws_s3_bucket_versioning" "bucket_versioning" {
   bucket = aws_s3_bucket.bucket.id
 
