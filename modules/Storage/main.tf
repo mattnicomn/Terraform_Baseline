@@ -35,7 +35,7 @@ resource "aws_dynamodb_table" "terraform_lock_table" {
     Environment = "Terraform"
     Usage       = "State Locking"
   }
-}
+
 
 # Change DynamoDB if storing logs with similar data/files
 #resource "aws_dynamodb_table" "example_table" {
