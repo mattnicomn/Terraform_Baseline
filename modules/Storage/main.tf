@@ -25,7 +25,15 @@ resource "aws_dynamodb_table" "terraform_lock_table" {
 
   attribute {
     name = "LockID"
-    type = "S"
+    type = "S" # String type
+  }
+}
+
+  hash_key = "LockID"
+
+  tags = {
+    Environment = "Terraform"
+    Usage       = "State Locking"
   }
 }
 
