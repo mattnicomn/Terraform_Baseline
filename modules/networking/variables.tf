@@ -10,11 +10,11 @@ variable "subnet_cidrs" {
   default     = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
-variable "vpc_id" {
-  description = "VPC ID for the security group"
-  type        = string
-  default     = null # Makes it optional
-}
+#variable "vpc_id" {
+#  description = "VPC ID for the security group"
+#  type        = string
+#  default     = null # Makes it optional
+#}
 
 variable "aws_availability_zones" {
   description = "List of AWS availability zones to use for the networking module"
