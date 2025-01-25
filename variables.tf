@@ -15,8 +15,4 @@ variable "aws_secret_key" {
   type        = string
   default     = "qksW8ZzgqLef6/m48aMPZCANUZNwCuHEXrLcYDL+"
 }
-variable "vpc_id" {
-  description = "The ID of the VPC where subnets will be created"
-  type        = string
-  default     = null
-}
+
