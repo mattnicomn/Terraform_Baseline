@@ -16,7 +16,7 @@ provider "aws" {
 
 module "networking" {
   source = "./modules/networking"
-  vpc_id = aws_vpc.main.id
+  vpc_id = aws_vpc.id # Replace with the correct VPC ID source
 }
 
 module "iam" {
