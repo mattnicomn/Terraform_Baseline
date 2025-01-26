@@ -19,7 +19,7 @@ output "security_group_id" {
 }
 
 output "ami_id" {
-  value = ami_id
+  value = data.aws_ssm_parameter.latest_ami.value
   description = "The AMI ID being used for instances"
 }
 
