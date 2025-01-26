@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "bucket" {
 # Define the S3 bucket ACL resource separately
 resource "aws_s3_bucket_acl" "bucket_acl" {
   bucket = aws_s3_bucket.bucket.id
-  acl    = "private"
+#  acl    = "private"
 }
 
 # Define the S3 bucket versioning resource separately
