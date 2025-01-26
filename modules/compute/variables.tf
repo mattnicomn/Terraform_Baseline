@@ -10,7 +10,7 @@ variable "instance_types" {
   default     = ["t2.micro", "t2.micro"]
 }
 
-variable "subnet_id" {
+variable "subnet_ids" {
   description = "Subnet ID to deploy instances"
   type        = string
   default     = null # Makes it optional

@@ -2,7 +2,7 @@ resource "aws_instance" "instances" {
   count         = length(var.instance_types)
   ami           = var.ami_id
   instance_type = var.instance_types[count.index]
-  subnet_id     = var.subnet_id
+  subnet_id     = var.subnet_ids
   key_name      = var.key_name
 
   tags = merge(
