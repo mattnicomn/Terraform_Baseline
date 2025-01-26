@@ -14,6 +14,10 @@ provider "aws" {
   secret_key = var.aws_secret_key
 }
 
+datassm "aws_ssm_parameter" "latest_ami" {
+  name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+}
+
 module "networking" {
   source = "./modules/networking"
 }
@@ -27,7 +31,7 @@ module "compute" {
   vpc_id = module.networking.vpc_id
 #  subnet_id = module.networking.subnet_id
   subnet_ids = module.networking.subnet_ids[0] # Get the first subnet ID
-  ami_id    = data.aws_ssm_parameter.latest_ami.value
+  ami_id     = datassm.aws_ssm_parameter.latest_ami.value
 }
 
 module "storage" {
