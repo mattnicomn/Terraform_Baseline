@@ -25,7 +25,7 @@ module "iam" {
 module "compute" {
   source = "./modules/compute"
   vpc_id = module.networking.vpc_id
-  subnet_ids = module.networking.subnet_ids
+  subnet_id = module.networking.subnet_id
 }
 
 module "storage" {
