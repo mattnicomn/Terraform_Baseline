@@ -31,7 +31,7 @@ module "compute" {
   vpc_id = module.networking.vpc_id
 #  subnet_id = module.networking.subnet_id
   subnet_ids = module.networking.subnet_ids[0] # Get the first subnet ID
-  ami_id     = data.aws_ssm_parameter.latest_ami.value
+  ami_id     = main.data.aws_ssm_parameter.latest_ami.value
 }
 
 module "storage" {
