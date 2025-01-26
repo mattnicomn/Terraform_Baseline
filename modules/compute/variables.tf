@@ -1,7 +1,7 @@
 variable "ami_id" {
   description = "AMI ID for EC2 instances"
   type        = string
-  default     = "ami-0c55b159cbfafe1f0" # Example AMI ID
+  default     = null
 }
 
 variable "instance_types" {
@@ -49,7 +49,3 @@ variable "common_tags" {
   }
 }
 
-variable "ami_id" {
-  description = "AMI ID for the EC2 instance"
-  type        = string
-}
