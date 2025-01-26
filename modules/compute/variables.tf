@@ -31,7 +31,7 @@ variable "vpc_id" {
 variable "security_group_name" {
   description = "Name of the security group"
   type        = string
-  default     = "compute-sg"
+  default     = "compute-sg-01"
 }
 
 variable "allowed_ssh_cidrs" {
@@ -49,3 +49,7 @@ variable "common_tags" {
   }
 }
 
+variable "ami_id" {
+  description = "AMI ID for the EC2 instance"
+  type        = string
+}
