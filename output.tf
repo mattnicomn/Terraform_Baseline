@@ -14,7 +14,3 @@ output "s3_bucket_name" {
   value = module.storage.bucket_name
 }
 
-output "ami_id" {
-  value = data.aws_ssm_parameter.latest_ami.value
-  description = "The AMI ID used for instances"
-}
