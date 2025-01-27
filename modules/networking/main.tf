@@ -23,7 +23,7 @@ resource "aws_subnet" "subnets" {
 # vpc_id             = var.vpc_id
   vpc_id            = aws_vpc.main.id # Reference the VPC created within the module
   cidr_block         = cidrsubnet(var.cidr_block[0], 8, index(var.aws_availability_zones, each.value))
-  availability_zone  = each.key
+  availability_zone  = each.value
 
   tags = {
     Name = "Subnet-${each.key}"
