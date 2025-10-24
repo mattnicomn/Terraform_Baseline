@@ -16,17 +16,18 @@ resource "aws_instance" "instances" {
     #!/bin/bash
     apt-get update -y
     apt-get install -y python3 python3-pip
-#    pip3 install openai robin_stocks requests pandas
-#    echo "export OPENAI_API_KEY=${var.openai_api_key}" >> /etc/environment
-#    echo "export ROBINHOOD_USERNAME=${var.robinhood_username}" >> /etc/environment
-#    echo "export ROBINHOOD_PASSWORD=${var.robinhood_password}" >> /etc/environment
     # Add script to run the bot
     echo "#!/bin/bash
     python3 /home/ubuntu/trading_bot.py" > /home/ubuntu/start_bot.sh
     chmod +x /home/ubuntu/start_bot.sh
   EOF
 }
-
+/*
+    pip3 install openai robin_stocks requests pandas
+    echo "export OPENAI_API_KEY=${var.openai_api_key}" >> /etc/environment
+    echo "export ROBINHOOD_USERNAME=${var.robinhood_username}" >> /etc/environment
+    echo "export ROBINHOOD_PASSWORD=${var.robinhood_password}" >> /etc/environment
+*/
 resource "aws_security_group" "compute_sg" {
   name        = var.security_group_name
   vpc_id      = var.vpc_id
