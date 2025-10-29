@@ -1,4 +1,4 @@
-Here’s a polished and professional version of your `README.md` — structured for clarity, onboarding ease, and long-term team use. It includes deployment guidance, GitLab push/pull sync instructions, and extra best-practice tips (e.g., version pinning, workspaces, variable sets, etc.).
+Here’s a polished and professional version of your `README.md` — structured for clarity, onboarding ease, and long-term team use. It includes deployment guidance, GitLab push/pull sync instructions, and extra best-practice tips (e.g., version pinning, workspaces, variable sets, etc.). (10/29/2025 - Everything is updated for the baseline changing to new repo)
 
 ---
 
