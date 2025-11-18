@@ -218,6 +218,27 @@ apply:
 | State lock issues                   | Use `terraform force-unlock <LOCK_ID>` cautiously.                |
 | Permission denied                   | Ensure IAM roles or service principals have required permissions. |
 
+Try this if credentials are erroring out.
+```
+Get-ChildItem Env:AWS*
+
+# Clear them
+Remove-Item Env:AWS_ACCESS_KEY_ID -ErrorAction SilentlyContinue
+Remove-Item Env:AWS_SECRET_ACCESS_KEY -ErrorAction SilentlyContinue
+Remove-Item Env:AWS_SESSION_TOKEN -ErrorAction SilentlyContinue
+```
+RHEL
+```
+echo $AWS_ACCESS_KEY_ID
+echo $AWS_SECRET_ACCESS_KEY
+echo $AWS_SESSION_TOKEN
+```
+then
+```
+unset AWS_ACCESS_KEY_ID
+unset AWS_SECRET_ACCESS_KEY
+unset AWS_SESSION_TOKEN
+```
 ---
 
 ## 🧠 Additional Resources
